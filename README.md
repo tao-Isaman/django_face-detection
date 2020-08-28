@@ -21,3 +21,7 @@ cd face_api
 python manage.py runserver
 ```
 go http://localhost:8000/
+
+
+## Example
+![Alt text](image/image.png?raw=true "Title")
