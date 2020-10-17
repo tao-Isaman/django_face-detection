@@ -1,16 +1,47 @@
 {% load static %}
 <html>
+  <title>Face Detection</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Inconsolata"
+  />
+  <style>
+    body,
+    html {
+      height: 100%;
+      font-family: "Inconsolata", sans-serif;
+    }
 
-<head>
-    <title>{% block title %}{% endblock %}</title>
-    <!-- <link rel="stylesheet" type="text/css" href="{% static 'bootstrap-4.5.0-dist/css/bootstrap.css' %}"> -->
-</head>
+    .bgimg {
+      background-position: center;
+      background-size: cover;
+      background-image: url("/w3images/coffeehouse.jpg");
+      min-height: 75%;
+    }
 
-<body>
-    {% block content %}{% endblock %}
+    .menu {
+      display: none;
+    }
 
-    <!-- <script src="{% static 'bootstrap-4.5.0-dist/js/bootstrap.min.js' %}"></script> -->
+    .video-center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+  </style>
+  <html>
+    <head>
+      <title>{% block title %}{% endblock %}</title>
+      <!-- <link rel="stylesheet" type="text/css" href="{% static 'bootstrap-4.5.0-dist/css/bootstrap.css' %}"> -->
+    </head>
 
-</body>
+    <body>
+      {% block content %}{% endblock %}
 
+      <!-- <script src="{% static 'bootstrap-4.5.0-dist/js/bootstrap.min.js' %}"></script> -->
+    </body>
+  </html>
 </html>
