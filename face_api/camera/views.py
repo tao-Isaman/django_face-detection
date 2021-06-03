@@ -3,7 +3,8 @@ from django.views import View
 from django.http import HttpResponse , StreamingHttpResponse ,request
 
 
-from .camera import VideoCamera
+from .camera import VideoCameraFace
+from .handtracker import VideoCameraHand
 
 
 # Create your views here.
@@ -17,9 +18,15 @@ def gen(camera):
                b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
 
 # @gzip.gzip_page
-def livefe(request):
+def face(request):
     try:
-        return StreamingHttpResponse(gen(VideoCamera()), content_type="multipart/x-mixed-replace;boundary=frame")
+        return StreamingHttpResponse(gen(VideoCameraFace()), content_type="multipart/x-mixed-replace;boundary=frame")
+    except:  # This is bad! replace it with proper handling
+        pass
+
+def hand(request):
+    try:
+        return StreamingHttpResponse(gen(VideoCameraHand()), content_type="multipart/x-mixed-replace;boundary=frame")
     except:  # This is bad! replace it with proper handling
         pass
 

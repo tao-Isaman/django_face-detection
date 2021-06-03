@@ -1,5 +1,6 @@
 FROM python:3-alpine
 ADD ./face_api /face_api
+COPY requirements.txt /face_api/requirements.txt
 WORKDIR /face_api
 # You will need this if you need PostgreSQL, otherwise just skip this
 RUN apk update && apk add gcc python3-dev musl-dev libffi-dev

@@ -1,8 +1,11 @@
 import cv2
+import time
 face_cascade=cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_alt2.xml")
 ds_factor=0.6
 
-class VideoCamera(object):
+class VideoCameraFace(object):
+    pTime = 0
+    cTime = 0
     def __init__(self):
         self.video = cv2.VideoCapture(0)
     
@@ -18,5 +21,13 @@ class VideoCamera(object):
         for (x,y,w,h) in face_rects:
         	cv2.rectangle(image,(x,y),(x+w,y+h),(0,255,0),2)
         	break
+        self.cTime = time.time()
+        fps = 1/(self.cTime - self.pTime)
+        self.pTime = self.cTime
+
+        cv2.putText(image, str(int(fps)), 
+                    (10, 70), cv2.FONT_HERSHEY_PLAIN, 3,
+                    (255,0,255), 3
+        )
         ret, jpeg = cv2.imencode('.jpg', image)
         return jpeg.tobytes()

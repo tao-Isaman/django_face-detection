@@ -1,9 +1,11 @@
 from django.urls import path
 from .views import (
-    livefe,
+    face,
+    hand,
     Camera)
 
 urlpatterns = [
     path('', Camera.as_view(), name='camera'),
-    path('video_feed/', livefe, name='livefe'),
+    path('video_face/', face, name='face'),
+    path('video_hand/', hand, name='hand'),
 ]
